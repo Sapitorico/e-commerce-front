@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Inputs from "../../components/Inputs.components.astro";
+---
+
+<Layout title="Register">
+  <main>
+    <div>Image</div>
+    <div>
+      <div class="register-form">
+        <h2>Registrate</h2>
+        <form action="/register" method="post">
+        <Inputs label="Nombre Completo" placeholder="Nombre Completo" name="full_name"/>
+        <Inputs label="Nombre de Usuario" placeholder="Nombre de Usuario" name="username"/>
+        <Inputs label="Correo Electronico" placeholder="Correo Electronico" name="email"/>
+        <Inputs label="Numero de Telefono" placeholder="Numero de Telefono" name="phone_number"/>
+        <Inputs label="Contraseña" placeholder="Contraseña" name="password"/>
+        <button type="submit">Registrar</button>
+        </form>
+        <div>
+          <p>¿Ya tienes una cuenta?</p>
+          <a href="/login">Iniciar Sesion</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+    .register-form {
+        border-color: var(--borders);
+        background-color:#ecf1f5;
+        filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.25));
+        border-radius: 2.4rem;
+        padding: 3.1rem 1.6rem;
+        display:flex;
+        flex-direction:column;
+        gap: 1.6rem;
+        width: 60rem;
+        padding: 2.4rem 4.8rem;
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 1.6rem;
+        }
+    }
+</style>
