@@ -10,11 +10,11 @@ import Inputs from "../../components/Inputs.components.astro";
       <div class="register-form">
         <h2>Registrate</h2>
         <form action="/register" method="post">
-        <Inputs label="Nombre Completo" placeholder="Nombre Completo" name="full_name"/>
-        <Inputs label="Nombre de Usuario" placeholder="Nombre de Usuario" name="username"/>
-        <Inputs label="Correo Electronico" placeholder="Correo Electronico" name="email"/>
-        <Inputs label="Numero de Telefono" placeholder="Numero de Telefono" name="phone_number"/>
-        <Inputs label="Contraseña" placeholder="Contraseña" name="password"/>
+        <Inputs type="text" label="Nombre Completo" placeholder="Nombre Completo" name="full_name" icon="user"/>
+        <Inputs type="text" label="Nombre de Usuario" placeholder="Nombre de Usuario" name="username" icon="user"/>
+        <Inputs type="email" label="Correo Electronico" placeholder="Correo Electronico" name="email" icon="mail"/>
+        <Inputs type="number" label="Numero de Telefono" placeholder="Numero de Telefono" name="phone_number" icon="phone"/>
+        <Inputs type="password" label="Contraseña" placeholder="Contraseña" name="password" icon="lock"/>
         <button type="submit">Registrar</button>
         </form>
         <div>
