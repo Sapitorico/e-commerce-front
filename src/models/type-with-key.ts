@@ -1,0 +1,1 @@
+export type TypeWihitKey<T> = {[key: string]: T}

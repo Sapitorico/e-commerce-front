@@ -18,7 +18,7 @@ if (Astro.request.method === "POST") {
     const email = data.get("email");
     const phone_number = data.get("phone_number");
     const password = data.get("password");
-    await customAxios.post("/auth/register", {
+    await customAxios.post("/auth/login", {
       full_name,
       username,
       email,
@@ -28,17 +28,17 @@ if (Astro.request.method === "POST") {
     return Astro.redirect("/auth/login");
   } catch (error) {
     if (error) {
-      return Astro.redirect(`/auth/register?message_error=${error}`);
+      return Astro.redirect(`/auth/login?message_error=${error}`);
     }
   }
 }
 ---
 
-<Layout title="Register">
+<Layout title="Login">
   <main>
     <div>Image</div>
     <div>
-      <div class="register-form">
+      <div class="login-form">
         <h2>Registrate</h2>
         <form method="post">
           <Input
@@ -110,7 +110,7 @@ if (Astro.request.method === "POST") {
       align-items: center;
       width: 50%;
     }
-    .register-form {
+    .login-form {
       border-color: var(--borders);
       background-color: #ecf1f5;
       filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25));

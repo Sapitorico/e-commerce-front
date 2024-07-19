@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 
-type InputType = "text" | "password" | "email" | "number";
+type InputType = "text" | "email" | "number";
 
-type IconsType = "user" | "lock" | "mail" | "phone";
+type IconsType = "user" | "mail" | "phone";
 
 interface Props {
   label: string;
@@ -30,15 +30,6 @@ const {
 } = Astro.props;
 ---
 
-<script>
-  function togglePasswordVisibility(name: string) {
-    const input = document.getElementById(name) as HTMLInputElement;
-    if (input) {
-      input.type = input.type === "password" ? "text" : "password";
-    }
-  }
-</script>
-
 <div class="input-container">
   <label for={name}>{label}</label>
   <div class="input-wrapper">
@@ -59,22 +50,9 @@ const {
       title={title}
       minlength={minlength}
       maxlength={maxlength}
-      id={name}
+      id="input-s"
       required
     />
-    {
-      type == "password" ? (
-        <span
-          class="show-password"
-          id="eye-icon"
-          onclick={`togglePasswordVisibility(${name})`}
-        >
-          <Icon name="eye" />
-        </span>
-      ) : (
-        ""
-      )
-    }
   </div>
 </div>
 
@@ -119,9 +97,6 @@ const {
         border: none;
         font-size: 1.4rem;
       }
-    }
-    .show-password {
-      cursor: pointer;
     }
   }
 </style>

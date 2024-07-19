@@ -11,11 +11,13 @@
     # pkgs.python311Packages.pip
     pkgs.nodejs_20
     pkgs.nodePackages.pnpm
+    pkgs.docker-compose
+    pkgs.docker
     # pkgs.nodePackages.nodemon
   ];
-
+  services.docker.enable = true;
   # Sets environment variables in the workspace
-  env = {};
+  env = { };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
@@ -26,21 +28,21 @@
     previews = {
       enable = true;
       previews = {
-      #   web = {
-      #   #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-      #   #   # and show it in IDX's web preview panel
-      #     command = [
-      #     "pnpm"
-      #     "run"
-      #     "dev"
-      #     "$PORT"
-      #   ];
-      #     manager = "web";
-      #     env = {
-      #       # Environment variables to set for your server
-      #       PORT = "$PORT";
-      #     };
-      #   };
+        #   web = {
+        #   #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
+        #   #   # and show it in IDX's web preview panel
+        #     command = [
+        #     "pnpm"
+        #     "run"
+        #     "dev"
+        #     "$PORT"
+        #   ];
+        #     manager = "web";
+        #     env = {
+        #       # Environment variables to set for your server
+        #       PORT = "$PORT";
+        #     };
+        #   };
       };
     };
 
