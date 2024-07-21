@@ -1,9 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
+
+console.log("session", session?.user);
 ---
 
 <Layout title="FroggyCommerce">
-	<main>
-sapo
-	</main>
+  <main>
+    <button id="logout">Cerrar sesión</button>
+
+    <script>
+      const { signOut } = await import("auth-astro/client");
+      document.querySelector("#logout").onclick = () => signOut();
+    </script>
+  </main>
 </Layout>

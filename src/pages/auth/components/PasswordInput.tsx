@@ -1,9 +1,9 @@
 import { useState } from "preact/hooks";
-import styles from "./Input.module.css";
+import styles from "./passwordInput.module.css";
 
 export default function Input(props: Props) {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const { label, placeholder } = props;
+  const { name, label, placeholder } = props;
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -11,7 +11,7 @@ export default function Input(props: Props) {
 
   return (
     <div className={styles.input_container}>
-      <label for="password">{label}</label>
+      <label for={name ? name : 'password'}>{label}</label>
       <div className={styles.input_wrapper}>
         <span>
           <svg
@@ -34,7 +34,7 @@ export default function Input(props: Props) {
         </span>
         <input
           type={passwordVisible ? "text" : "password"}
-          name="password"
+          name={name ? name : 'password'}
           placeholder={placeholder}
           minlength={8}
           maxlength={64}
@@ -88,6 +88,7 @@ export default function Input(props: Props) {
 }
 
 interface Props {
+  name?: string;
   label: string;
   placeholder: string;
 }

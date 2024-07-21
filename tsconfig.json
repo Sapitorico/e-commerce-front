@@ -1,6 +1,14 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@middlewares/*" : ["src/middlewares/*"],
+      "@components/*" : ["src/components/*"],
+      "@models/*" : ["src/models/*"],
+      "@services/*" : ["src/services/*"],
+      "@utils/*" : ["src/utils/*"],
+    },
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   }

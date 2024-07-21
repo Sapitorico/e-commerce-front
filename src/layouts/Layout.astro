@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
 }
@@ -15,54 +17,55 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
+    <style is:global>
+      :root {
+        --background: #ecf1f5;
+        --secondary-background: #ffffff;
+        --accent: 14, 33, 40;
+        --primary-text: #0e2128;
+        --secondary-text: #171a1f;
+        --dividers: #aab1be;
+        --borders: #565e6d;
+        --error: 255, 2, 2;
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        font-size: 62.5%;
+        background: var(--background);
+        height: 100%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      h2 {
+        color: var(--primary-text);
+        font-size: 4.9rem;
+        font-weight: 800;
+      }
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+      }
+      input:focus {
+        outline: none;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --background: #ecf1f5;
-    --secondary-background: #ffffff;
-    --accent: 14, 33, 40;
-    --primary-text: #0e2128;
-    --secondary-text: #171a1f;
-    --dividers: #aab1be;
-    --borders: #565e6d;
-    --error: 255, 2, 2;
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    font-size: 62.5%;
-    background: var(--background);
-    height: 100%;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-  h2 {
-    color: var(--primary-text);
-    font-size: 4.9rem;
-    font-weight: 800;
-  }
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-  }
-  input:focus {
-    outline: none;
-  }
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  a {
-    text-decoration: none;
-  }
-</style>
