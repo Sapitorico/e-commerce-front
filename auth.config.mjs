@@ -1,5 +1,4 @@
 import { defineConfig } from "auth-astro";
-import { AccessDenied } from "@auth/core/errors";
 import CredentialProvider from "@auth/core/providers/credentials";
 import { loginService } from "@services/login.service";
 
@@ -16,10 +15,10 @@ export const authOptions = {
       authorize: async (credentials) => {
         const email = credentials.email;
         const password = credentials.password;
-        const res = await loginService(email, password);
-        if (res.success) {
-          const user = res.data.user;
-          const token = res.data.token;
+        const data = await loginService(email, password);
+        if (data) {
+          const user = data.user;
+          const token = data.token;
           return { user: user, token: token };
         }
         return Promise.reject(new Error("Authentication failed"));

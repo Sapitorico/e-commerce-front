@@ -1,0 +1,56 @@
+---
+type ButtonType = "submit" | "button";
+type ColorType = "primary" | "secondary";
+
+interface Props {
+  type?: ButtonType;
+  color?: ColorType;
+}
+
+const { type, color = "primary" } = Astro.props;
+---
+
+<button type={type} class={`cta-button ${color}`}>
+  <span><slot /></span>
+</button>
+
+<style>
+  .cta-button {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .cta-button.primary {
+    background-color: rgba(var(--accent), 0.9);
+  }
+
+  .cta-button.secondary {
+    background-color: var(--background);
+  }
+
+  .cta-button.primary:hover {
+    background-color: rgba(var(--accent), 1);
+    transform: scale(1.01);
+  }
+  .cta-button.secondary:hover {
+    background-color: var(--background);
+    transform: scale(1.01);
+  }
+
+  .cta-button:active {
+    transform: scale(0.99);
+  }
+
+  .cta-button span {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+</style>

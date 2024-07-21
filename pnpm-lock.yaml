@@ -15,8 +15,8 @@ dependencies:
     specifier: ^7.7.2
     version: 7.7.2(astro@4.11.5)(next@14.2.5)(react@18.3.1)
   '@auth/core':
-    specifier: ^0.32.0
-    version: 0.32.0
+    specifier: ^0.34.1
+    version: 0.34.1
   astro:
     specifier: ^4.11.5
     version: 4.11.5(typescript@5.5.3)
@@ -25,7 +25,7 @@ dependencies:
     version: 1.1.0
   auth-astro:
     specifier: ^4.1.2
-    version: 4.1.2(@auth/core@0.32.0)(astro@4.11.5)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)
+    version: 4.1.2(@auth/core@0.34.1)(astro@4.11.5)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)
   axios:
     specifier: ^1.7.2
     version: 1.7.2
@@ -203,8 +203,8 @@ packages:
       - supports-color
     dev: false
 
-  /@auth/core@0.32.0:
-    resolution: {integrity: sha512-3+ssTScBd+1fd0/fscAyQN1tSygXzuhysuVVzB942ggU4mdfiTbv36P0ccVnExKWYJKvu3E2r3/zxXCCAmTOrg==}
+  /@auth/core@0.34.1:
+    resolution: {integrity: sha512-tuYU2VIbI8rFbkSwP710LmybB2FXJsPN7j3sjRVfN9SXVQBK2ej6LdewQaofpBGp4Mk+cC2UeiGNH0or4tgaeA==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -1765,14 +1765,14 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /auth-astro@4.1.2(@auth/core@0.32.0)(astro@4.11.5)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1):
+  /auth-astro@4.1.2(@auth/core@0.34.1)(astro@4.11.5)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-jkbxYZAKtBWVs5mZp+4y7W3WNF0UXlkcz2sOKyy+uBfDLOUWP4av/i9+cXCRflbhbmxBw7sztdzw/pcUE40IRg==}
     engines: {node: '>=17.4'}
     peerDependencies:
       '@auth/core': ^0.32.0
       astro: ^4.0.0
     dependencies:
-      '@auth/core': 0.32.0
+      '@auth/core': 0.34.1
       astro: 4.11.5(typescript@5.5.3)
       next-auth: 4.24.7(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)
       set-cookie-parser: 2.6.0

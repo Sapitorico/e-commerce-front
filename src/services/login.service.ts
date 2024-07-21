@@ -1,13 +1,13 @@
+import { loginAddapter } from "@adapters/login.adapter";
 import customAxios from "@middlewares/axios.instance";
 
 export const loginService = async (email: string, password: string) => {
-  try {
-    const response = await customAxios.post("/auth/login", {
+  return customAxios
+    .post("/auth/login", {
       email,
       password,
+    })
+    .then((res) => {
+      return loginAddapter(res.data);
     });
-    return { success: true, data: response.data };
-  } catch (error) {
-    return { success: false, error: error };
-  }
 };

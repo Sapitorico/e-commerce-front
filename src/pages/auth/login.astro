@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Input from "../../components/Input.component.astro";
-import Button from "../../components/CtaButton.component.astro";
+import Input from "../../components/Input.astro";
+import Button from "../../components/CtaButton.astro";
 import PasswordInput from "./components/PasswordInput";
 ---
 
@@ -59,14 +59,6 @@ import PasswordInput from "./components/PasswordInput";
             client:visible
           />
           <Button type="submit">Iniciar sesión</Button>
-          <!-- <div
-            class=`error-container ${message_error ? 'error-on' : 'error-off'}`
-          >
-            <div class="warning-icon-container">
-              <Icon class="warning-icon" name="warning" />
-            </div>
-            {message_error && <p>{message_error}</p>}
-          </div> -->
         </form>
         <div class="login-link">
           <p>¿Aún no tienes cuenta?</p>

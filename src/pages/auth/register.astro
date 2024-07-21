@@ -1,10 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Input from "../../components/Input.component.astro";
-import Button from "../../components/CtaButton.component.astro";
+import Input from "../../components/Input.astro";
+import Button from "../../components/CtaButton.astro";
 import PasswordInput from "./components/PasswordInput";
-import { customAxios } from "../../middlewares/axios.instance";
 import { Icon } from "astro-icon/components";
+import { registerService } from "@services/register.service";
+import { registerAddapter } from "@adapters/register.adapter";
 
 export const prerender = false;
 
@@ -13,18 +14,7 @@ const message_error = Astro.url.searchParams.get("message_error");
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    const full_name = data.get("full_name");
-    const username = data.get("username");
-    const email = data.get("email");
-    const phone_number = data.get("phone_number");
-    const password = data.get("password");
-    await customAxios.post("/auth/register", {
-      full_name,
-      username,
-      email,
-      phone_number,
-      password,
-    });
+    await registerService(registerAddapter(data));
     return Astro.redirect("/auth/login");
   } catch (error) {
     if (error) {
